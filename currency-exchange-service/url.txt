@@ -1,0 +1,15 @@
+Currency exchange service
+http://localhost:8000/currency-exchange/from/USD/to/INR
+
+Currency converter service
+http://localhost:8100/currency_conversion/from/USD/to/INR/quantity/10
+
+
+
+{
+   "id":10001,
+   "from":"USD",
+   "to":"INR",
+   "conversionMultiple":65.00,
+   "environment":"8000 instance-id"
+}
