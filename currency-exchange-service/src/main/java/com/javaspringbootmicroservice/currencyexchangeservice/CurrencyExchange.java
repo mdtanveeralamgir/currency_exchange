@@ -1,10 +1,17 @@
 package com.javaspringbootmicroservice.currencyexchangeservice;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
+@Entity
 public class CurrencyExchange {
+    @Id
     private Long id;
+    @Column(name="currency_from")
     private String from;
+    @Column(name="currency_to")
     private String to;
     private BigDecimal conversionMultiple;
     //identifies which instances of currencyExchange has been providing the reponse by port number
