@@ -13,12 +13,16 @@ public class CurrencyExchangeController {
 
     @Autowired
     private Environment environment; //Spring boot offers environment class to get the environment properties
+    @Autowired
+    CurrencyExchangeRepository repository;
     @GetMapping("/currency_exchange/from/{from}/to/{to}")
     public CurrencyExchange retrieveExhangeValue(
             @PathVariable String from,
             @PathVariable String to
             ){
-        CurrencyExchange currencyExchange = new CurrencyExchange(100L, from, to, BigDecimal.valueOf(50));
+        CurrencyExchange currencyExchange = repository.findByFromAndTo(from, to);
+        if(null == currencyExchange)
+            throw new RuntimeException("Unable to find data for " + from + " to " + to);
         //Get the port of the CurrencyExchange in use from environment
         String port = environment.getProperty("local.server.port");
         currencyExchange.setEnvironment(port);
