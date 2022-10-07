@@ -4,7 +4,13 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name="currency-exchange", url="localhost:8001") //The name defined in application.properties in CurrencyExchange
+//The name defined in application.properties in CurrencyExchange
+//This one is without load balancing
+//@FeignClient(name="currency-exchange", url="localhost:8001")
+
+//By just removing the URL the load balancing will take place and eureka will do the job
+@FeignClient(name="currency-exchange")
+
 public interface CurrencyExchangeProxy {
 
     //Matching the uri of CurrencyExchange
