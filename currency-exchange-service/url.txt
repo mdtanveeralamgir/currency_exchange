@@ -1,10 +1,18 @@
 Currency exchange service
-http://localhost:8000/currency-exchange/from/USD/to/INR
+http://localhost:8000/currency_exchange/from/USD/to/INR
 
 Currency converter service
 http://localhost:8100/currency_conversion/from/USD/to/INR/quantity/10
 http://localhost:8100/currency_conversion_feign/from/AUD/to/INR/quantity/10
 
+
+eureka
+http://localhost:8761
+
+api-gateway
+format:
+http://localhost:<port>/<service-name>/<service-url>
+http://localhost:8765/CURRENCY-EXCHANGE/currency_exchange/from/USD/to/INR
 
 
 {
