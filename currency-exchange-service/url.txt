@@ -12,17 +12,19 @@ http://localhost:8761
 api-gateway
 format:
 http://localhost:<port>/<service-name>/<service-url>
+
 api-gateway link for currency exchange:
 http://localhost:8765/CURRENCY-EXCHANGE/currency_exchange/from/USD/to/INR
+
 api-gateway link for currency conversion:
 http://localhost:8765/CURRENCY-CONVERSION/currency_conversion_feign/from/AUD/to/INR/quantity/10
 http://localhost:8765/CURRENCY-CONVERSION/currency_conversion/from/USD/to/INR/quantity/10
 
+short link using router:
+Currency exchange:
+http://localhost:8765/currency_exchange/from/USD/to/INR
 
-{
-   "id":10001,
-   "from":"USD",
-   "to":"INR",
-   "conversionMultiple":65.00,
-   "environment":"8000 instance-id"
-}
+currency conversion:
+http://localhost:8765/currency_conversion/from/AUD/to/INR/quantity/10
+http://localhost:8765/currency_conversion_feign/from/AUD/to/INR/quantity/10
+http://localhost:8765/currency_conversion_new/from/AUD/to/INR/quantity/10
