@@ -23,7 +23,7 @@ public class CurrencyConversionController {
         //Calling a rest api
         //from and to will be passed by hashmap (uriVariables)
         //the properties name of CurrencyExchange bean should be same as CurrencyConversion properties in order to map properly
-        ResponseEntity<CurrencyConversion> responseEntity = new RestTemplate().getForEntity("http://localhost:8000/currency_exchange/from/{from}/to/{to}",
+        ResponseEntity<CurrencyConversion> responseEntity = new RestTemplate().getForEntity("http://localhost:8001/currency_exchange/from/{from}/to/{to}",
                 CurrencyConversion.class, uriVariables);
         CurrencyConversion currencyConversion = responseEntity.getBody();
         return new CurrencyConversion(currencyConversion.getId(), from, to, quantity, currencyConversion.getConversionMultiple(), quantity.multiply(currencyConversion.getConversionMultiple()), currencyConversion.getEnvironment());
