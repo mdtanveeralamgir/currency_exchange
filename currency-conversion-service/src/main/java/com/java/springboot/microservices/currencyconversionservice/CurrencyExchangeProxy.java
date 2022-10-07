@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 //This one is without load balancing
 //@FeignClient(name="currency-exchange", url="localhost:8001")
 
-//By just removing the URL the load balancing will take place and eureka will do the job
+//By just removing the URL the load balancing will take place and eureka and feign will do the job
 @FeignClient(name="currency-exchange")
 
 public interface CurrencyExchangeProxy {
