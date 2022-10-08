@@ -12,11 +12,17 @@ import org.springframework.web.client.RestTemplate;
 public class CircuitBreakerController {
     private Logger logger = LoggerFactory.getLogger(CircuitBreakerController.class);
     @GetMapping("/sample-api")
-    @Retry(name = "sample-api")//retry upon failure using default configuration
+    @Retry(name = "sample-api", fallbackMethod = "hardCodedResponse")//retry upon failure using default configuration
     public String sampleApi()
     {
         logger.info("Sample Api call received");
         ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://localhost:8080/intend-to-fail", String.class);
         return forEntity.getBody();
+    }
+
+    //After the retry shows this response in the page
+    public String hardCodedResponse(Exception ex)
+    {
+        return "fallback-response";
     }
 }
